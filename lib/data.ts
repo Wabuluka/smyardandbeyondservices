@@ -6,9 +6,9 @@ export const business = {
   owners: ["Timothy", "Elijah"],
   phone: "978-715-7481",
   phoneHref: "tel:+19787157481",
-  email: "info@smyardandbeyondservices.com",
-  domain: "smyardandbeyondservices.com",
-  url: "https://smyardandbeyondservices.com",
+  email: "smyardandbeyondservices@gmail.com",
+  domain: "smyardservices.com",
+  url: "https://smyardservices.com",
 };
 
 export type Season = "Spring" | "Summer" | "Fall" | "Winter" | "Spring–Fall";

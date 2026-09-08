@@ -1,52 +1,14 @@
-import { business } from "@/lib/data";
+import { getGoogleReviews, type GoogleReview } from "@/lib/google-reviews";
 
-// TODO: wire up to the real Google Places/Business Profile API.
-//
-// Once you have a Places API key and this business's Place ID:
-//   1. Server-side (e.g. a Server Component or Route Handler — never expose
-//      the API key to the browser), call the Places API "Place Details"
-//      endpoint with `fields=rating,userRatingCount,reviews`:
-//      https://maps.googleapis.com/maps/api/place/details/json
-//        ?place_id=<PLACE_ID>&fields=rating,reviews,userRatingCount&key=<KEY>
-//   2. Map the response's `reviews[]` (author_name, rating, text,
-//      relative_time_description, profile_photo_url) into the `Review` shape
-//      below, and `rating`/`user_ratings_total` into the summary props.
-//   3. Replace `placeholderSummary`/`placeholderReviews` with that data.
-//      Everything else in this component (star rendering, card layout,
-//      "See all reviews" link) can stay as-is.
+// The section only renders once Google returns at least this many reviews.
+const MIN_REVIEWS = 3;
 
-type Review = {
+type DisplayReview = {
   author: string;
   rating: number;
   text: string;
   relativeTime: string;
 };
-
-const placeholderSummary = {
-  rating: 4.9,
-  reviewCount: 27,
-};
-
-const placeholderReviews: Review[] = [
-  {
-    author: "Google review",
-    rating: 5,
-    text: "Placeholder — real reviews will appear here once connected to Google.",
-    relativeTime: "recently",
-  },
-  {
-    author: "Google review",
-    rating: 5,
-    text: "Placeholder — real reviews will appear here once connected to Google.",
-    relativeTime: "recently",
-  },
-  {
-    author: "Google review",
-    rating: 5,
-    text: "Placeholder — real reviews will appear here once connected to Google.",
-    relativeTime: "recently",
-  },
-];
 
 function Stars({ rating }: { rating: number }) {
   return (
@@ -68,8 +30,14 @@ function Stars({ rating }: { rating: number }) {
   );
 }
 
-export default function GoogleReviews() {
-  const { rating, reviewCount } = placeholderSummary;
+export default async function GoogleReviews() {
+  const live = await getGoogleReviews();
+
+  // Hide the whole section unless we have real Google data with enough reviews.
+  if (!live || live.reviews.length < MIN_REVIEWS) return null;
+
+  const { rating, reviewCount, googleMapsUri } = live;
+  const reviews: DisplayReview[] = live.reviews.slice(0, 3).map(toDisplay);
 
   return (
     <section className="border-b border-primary/15 bg-base-200">
@@ -88,18 +56,20 @@ export default function GoogleReviews() {
             </div>
           </div>
 
-          <a
-            href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(business.name)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-display text-sm font-semibold text-primary hover:underline"
-          >
-            See all reviews on Google →
-          </a>
+          {googleMapsUri && (
+            <a
+              href={googleMapsUri}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-display text-sm font-semibold text-primary hover:underline"
+            >
+              See all reviews on Google →
+            </a>
+          )}
         </div>
 
         <div className="mt-10 grid gap-4 sm:grid-cols-3">
-          {placeholderReviews.map((review, i) => (
+          {reviews.map((review, i) => (
             <div key={i} className="card border border-primary/15 bg-base-100">
               <div className="card-body gap-3 p-5">
                 <Stars rating={review.rating} />
@@ -114,4 +84,13 @@ export default function GoogleReviews() {
       </div>
     </section>
   );
+}
+
+function toDisplay(r: GoogleReview): DisplayReview {
+  return {
+    author: r.author,
+    rating: r.rating,
+    text: r.text,
+    relativeTime: r.relativeTime || "recently",
+  };
 }

@@ -1,5 +1,9 @@
 import Header from "@/components/Header";
 import About from "@/components/About";
+import WhyChooseUs from "@/components/WhyChooseUs";
+import HowWeWork from "@/components/HowWeWork";
+import ServiceArea from "@/components/ServiceArea";
+import Faq from "@/components/Faq";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import { business } from "@/lib/data";
@@ -25,6 +29,10 @@ export default function AboutPage() {
           </div>
         </section>
         <About />
+        <WhyChooseUs />
+        <HowWeWork />
+        <ServiceArea />
+        <Faq />
         <Contact />
       </main>
       <Footer />
