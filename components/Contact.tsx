@@ -1,24 +1,26 @@
 import Link from "next/link";
 import { business, towns } from "@/lib/data";
-import QuoteForm from "@/components/QuoteForm";
+import MarkateWidget from "@/components/MarkateWidget";
+// import QuoteForm from "@/components/QuoteForm"; // native form — kept for future use
 
 export default function Contact({ showHeading = true }: { showHeading?: boolean }) {
   return (
     <section className="border-b border-primary/15 bg-primary text-primary-content">
-      <div className="mx-auto grid max-w-6xl gap-10 px-6 py-16 sm:py-20 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] md:items-start">
-        <QuoteForm />
+      <div className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
+        {showHeading && (
+          <div className="max-w-2xl">
+            <h2 className="font-display text-3xl font-bold sm:text-4xl">Request a quote</h2>
+            <p className="mt-3 text-primary-content/85">
+              Tell us about your yard and we&apos;ll get back to you with a free estimate — usually
+              the same day, from {business.owners[0]} or {business.owners[1]} directly.
+            </p>
+          </div>
+        )}
 
-        <div className="min-w-0">
-          {showHeading && (
-            <>
-              <h2 className="font-display text-3xl font-bold sm:text-4xl">Request a quote</h2>
-              <p className="mt-3 max-w-md text-primary-content/85">
-                Tell us about your yard and we&apos;ll get back to you with a free estimate.
-              </p>
-            </>
-          )}
+        <div className={`grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start ${showHeading ? "mt-10" : ""}`}>
+          <MarkateWidget />
 
-          <div className={`flex flex-col gap-4 ${showHeading ? "mt-8" : ""}`}>
+          <div className="flex flex-col gap-4">
             <a
               href={business.phoneHref}
               className="flex items-center gap-3 rounded-box border border-primary-content/15 bg-primary-content/5 px-4 py-3 transition hover:bg-primary-content/10"
@@ -52,23 +54,23 @@ export default function Contact({ showHeading = true }: { showHeading?: boolean 
                 <span className="block truncate font-display font-semibold">{business.email}</span>
               </span>
             </a>
-          </div>
 
-          <div className="mt-10 rounded-box border border-primary-content/15 bg-primary-content/5 p-5">
-            <h3 className="font-display text-sm font-bold uppercase tracking-wide text-secondary">
-              Where we work
-            </h3>
-            <p className="mt-2 text-sm text-primary-content/85">
-              {towns.length} towns across Massachusetts and southern New Hampshire, run year-round
-              by {business.owners[0]} and {business.owners[1]} — no subcontractors, no rotating
-              crew.
-            </p>
-            <Link
-              href="/service-areas"
-              className="mt-3 inline-block font-display text-sm font-semibold text-secondary hover:underline"
-            >
-              See all service areas →
-            </Link>
+            <div className="rounded-box border border-primary-content/15 bg-primary-content/5 p-5">
+              <h3 className="font-display text-sm font-bold uppercase tracking-wide text-secondary">
+                Where we work
+              </h3>
+              <p className="mt-2 text-sm text-primary-content/85">
+                {towns.length} towns across Massachusetts and southern New Hampshire, run
+                year-round by {business.owners[0]} and {business.owners[1]} — no subcontractors, no
+                rotating crew.
+              </p>
+              <Link
+                href="/service-areas"
+                className="mt-3 inline-block font-display text-sm font-semibold text-secondary hover:underline"
+              >
+                See all service areas →
+              </Link>
+            </div>
           </div>
         </div>
       </div>
