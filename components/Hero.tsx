@@ -13,9 +13,9 @@ export default function Hero({ townName }: { townName?: string }) {
             Yard work that doesn&apos;t stop when the leaves do.
           </h1>
           <p className="mt-3 max-w-lg text-sm text-primary-content/85 sm:text-base md:mt-5 md:text-lg">
-            {business.owners[0]} and {business.owners[1]} run every job in {place} themselves —
-            spring clean-up through summer mowing, fall clean-up, and snow removal all winter.
-            Most crews quiet down in the cold. We don&apos;t.
+            {business.owners[0]} and {business.owners[1]} run every lawn care and landscaping job
+            in {place} themselves — spring clean-up, lawn mowing, yard work, fall clean-up, and
+            snow plowing all winter. Most crews quiet down in the cold. We don&apos;t.
           </p>
           <div className="mt-4 flex flex-wrap gap-3 md:mt-8 md:gap-4">
             <Link href="/contact" className="btn btn-secondary btn-sm font-display text-secondary-content md:btn-md">

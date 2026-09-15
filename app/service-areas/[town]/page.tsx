@@ -20,8 +20,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!town) return {};
 
   return pageMetadata({
-    title: `Landscaping & Lawn Care in ${town.name}, ${town.state}`,
-    description: `${business.name} provides landscaping, lawn maintenance, mulch, hedge trimming, seasonal clean-ups and snow removal in ${town.name}, ${town.state}.`,
+    title: `Lawn Care & Landscaping in ${town.name}, ${town.state}`,
+    description: `Lawn care, mowing, landscaping, mulch, hedge trimming, yard clean-ups, and snow plowing in ${town.name}, ${town.state} — local, reliable, and year-round.`,
     path: `/service-areas/${town.slug}`,
   });
 }
@@ -78,8 +78,7 @@ export default async function TownPage({ params }: Props) {
             </h1>
             <p className="mt-4 max-w-xl text-primary-content/85">
               {business.owners[0]} and {business.owners[1]} handle every yard in {town.name}{" "}
-              personally — spring clean-up through summer mowing, fall clean-up, and snow removal
-              all winter.
+              personally — lawn mowing, yard clean-ups, and snow plowing, all year long.
             </p>
           </div>
         </section>
@@ -87,11 +86,12 @@ export default async function TownPage({ params }: Props) {
         <section className="border-b border-primary/15 bg-base-100">
           <div className="mx-auto max-w-6xl px-6 py-16">
             <p className="text-base leading-relaxed text-neutral">
-              Homeowners in {town.name} call us for everything from spring clean-up and regular
-              mowing to hedge trimming and mulch, and when winter hits {town.name}, we&apos;re
-              still showing up — plowing driveways and clearing walkways storm after storm.
-              Whether you need a one-time clean-up or year-round upkeep, we&apos;d like to take a
-              look at your property and give you a straight estimate.
+              Looking for lawn care near you in {town.name}? Homeowners here call us for
+              everything from weekly lawn mowing and yard work to hedge trimming, mulch, and
+              spring and fall clean-ups. When winter hits {town.name}, we&apos;re still showing
+              up — plowing driveways and clearing walkways storm after storm. Whether you need a
+              one-time clean-up, a reliable lawn maintenance company, or year-round upkeep,
+              we&apos;d like to take a look at your property and give you a straight estimate.
             </p>
 
             <h2 className="mt-10 font-display text-sm font-bold uppercase tracking-wide text-neutral">

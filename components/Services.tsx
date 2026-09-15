@@ -8,8 +8,9 @@ export default function Services() {
           What we do
         </h2>
         <p className="mt-3 max-w-2xl text-neutral">
-          We deliver a number of services to improve, maintain, and uplift your property. Here&apos;s
-          what we cover and when.
+          From weekly lawn mowing and yard work to landscaping, clean-ups, and snow plowing, we
+          cover the full range of lawn care and property maintenance. Here&apos;s what we cover
+          and when.
         </p>
 
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

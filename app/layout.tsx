@@ -24,9 +24,9 @@ export const metadata: Metadata = {
     "color-scheme": "light dark",
   },
   ...pageMetadata({
-    title: `${business.name} | Landscaping & Snow Removal, Merrimack Valley`,
+    title: `${business.name} | Lawn Care & Landscaping, Merrimack Valley`,
     description:
-      "Landscaping, lawn maintenance, mulch, hedge trimming, seasonal clean-ups and snow removal across the Merrimack Valley — run year-round by Timothy and Elijah.",
+      "Lawn care, mowing, landscaping, mulch, hedge trimming, yard clean-ups and snow plowing across the Merrimack Valley — run year-round by Timothy and Elijah.",
     path: "/",
   }),
   icons: {
