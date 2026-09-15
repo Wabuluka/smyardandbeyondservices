@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Services from "@/components/Services";
+import Gallery from "@/components/Gallery";
 import Seasons from "@/components/Seasons";
 import Faq from "@/components/Faq";
 import Contact from "@/components/Contact";
@@ -29,6 +30,7 @@ export default function ServicesPage() {
           </div>
         </section>
         <Services />
+        <Gallery />
         <Seasons />
         <Faq />
         <Contact />
