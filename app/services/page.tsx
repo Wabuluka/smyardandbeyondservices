@@ -9,9 +9,9 @@ import { business } from "@/lib/data";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
-  title: "Services",
+  title: "Lawn Care & Landscaping Services",
   description:
-    "Landscaping, lawn maintenance, mulch installation, hedge trimming, seasonal clean-ups, lawn repairs and snow removal — year-round, run by Timothy and Elijah.",
+    "Lawn care, mowing, landscaping, mulch installation, hedge trimming, yard clean-ups, lawn repairs and snow plowing — year-round, run by Timothy and Elijah.",
   path: "/services",
 });
 
@@ -22,10 +22,13 @@ export default function ServicesPage() {
       <main className="flex-1">
         <section className="border-b border-primary/15 bg-primary text-primary-content">
           <div className="mx-auto max-w-6xl px-6 py-14">
-            <h1 className="font-display text-4xl font-bold sm:text-5xl">Our services</h1>
+            <h1 className="font-display text-4xl font-bold sm:text-5xl">
+              Lawn care &amp; landscaping services
+            </h1>
             <p className="mt-4 max-w-xl text-primary-content/85">
-              Services to improve, maintain, and uplift your property, covering every season and all
-              run by {business.owners[0]} and {business.owners[1]} themselves.
+              From lawn mowing and yard work to landscaping and snow plowing, we cover every
+              season and every property, all run by {business.owners[0]} and{" "}
+              {business.owners[1]} themselves.
             </p>
           </div>
         </section>
