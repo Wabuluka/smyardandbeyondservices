@@ -6,7 +6,6 @@ import Image from "next/image";
 const slides = [
   { src: "/hero/team-trailer.jpg", alt: "The SM Yard and Beyond crew with their equipment trailer" },
   { src: "/hero/mowing-action.jpg", alt: "Mowing a well-kept lawn with a stand-on mower" },
-  { src: "/hero/patio.jpg", alt: "A finished stone patio and landscaping project" },
   { src: "/hero/landscaping.jpg", alt: "A landscaped backyard with stonework and fresh lawn" },
 ];
 
