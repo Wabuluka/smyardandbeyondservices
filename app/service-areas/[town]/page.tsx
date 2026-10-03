@@ -31,7 +31,7 @@ export default async function TownPage({ params }: Props) {
   const town = getTown(slug);
   if (!town) return notFound();
 
-  const nearby = nearbyTowns(slug, 3);
+  const nearby = nearbyTowns(slug);
 
   const serviceSchema = {
     "@context": "https://schema.org",
@@ -85,7 +85,23 @@ export default async function TownPage({ params }: Props) {
 
         <section className="border-b border-primary/15 bg-base-100">
           <div className="mx-auto max-w-6xl px-6 py-16">
-            <p className="text-base leading-relaxed text-neutral">
+            <h2 className="font-display text-2xl font-bold text-primary">
+              Yard care in {town.name}
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-neutral">{town.local}</p>
+
+            <h2 className="mt-10 font-display text-sm font-bold uppercase tracking-wide text-neutral">
+              Areas we cover in {town.name}
+            </h2>
+            <ul className="mt-3 flex flex-wrap gap-2">
+              {town.areas.map((area) => (
+                <li key={area} className="badge badge-outline border-primary/30 px-3 py-3 text-primary">
+                  {area}
+                </li>
+              ))}
+            </ul>
+
+            <p className="mt-10 text-base leading-relaxed text-neutral">
               Looking for lawn care near you in {town.name}? Homeowners here call us for
               everything from weekly lawn mowing and yard work to hedge trimming, mulch, and
               spring and fall clean-ups. When winter hits {town.name}, we&apos;re still showing

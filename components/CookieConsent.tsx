@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 
 const STORAGE_KEY = "sm-cookie-consent";
+/** Fired on window once the visitor answers, so other popups can wait their turn. */
+export const CONSENT_EVENT = "sm-cookie-consent";
 
 export default function CookieConsent() {
   const [visible, setVisible] = useState(false);
@@ -23,6 +25,7 @@ export default function CookieConsent() {
       /* storage unavailable — just dismiss */
     }
     setVisible(false);
+    window.dispatchEvent(new Event(CONSENT_EVENT));
   }
 
   if (!visible) return null;
