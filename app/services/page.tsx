@@ -5,6 +5,7 @@ import Seasons from "@/components/Seasons";
 import Faq from "@/components/Faq";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { business } from "@/lib/data";
 import { pageMetadata } from "@/lib/seo";
 
@@ -22,6 +23,7 @@ export default function ServicesPage() {
       <main className="flex-1">
         <section className="border-b border-primary/15 bg-primary text-primary-content">
           <div className="mx-auto max-w-6xl px-6 py-14">
+            <Breadcrumbs items={[{ name: "Services", path: "/services" }]} />
             <h1 className="font-display text-4xl font-bold sm:text-5xl">
               Lawn care &amp; landscaping services
             </h1>

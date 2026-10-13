@@ -6,6 +6,7 @@ import ServiceArea from "@/components/ServiceArea";
 import Faq from "@/components/Faq";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { business } from "@/lib/data";
 import { pageMetadata } from "@/lib/seo";
 
@@ -22,6 +23,7 @@ export default function AboutPage() {
       <main className="flex-1">
         <section className="border-b border-primary/15 bg-primary text-primary-content">
           <div className="mx-auto max-w-6xl px-6 py-14">
+            <Breadcrumbs items={[{ name: "About", path: "/about" }]} />
             <h1 className="font-display text-4xl font-bold sm:text-5xl">About us</h1>
             <p className="mt-4 max-w-xl text-primary-content/85">
               The people behind {business.name} — and why we run it this way.

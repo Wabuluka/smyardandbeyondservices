@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { business } from "@/lib/data";
 import { pageMetadata } from "@/lib/seo";
 
@@ -17,6 +18,7 @@ export default function ContactPage() {
       <main className="flex-1">
         <section className="border-b border-primary/15 bg-primary text-primary-content">
           <div className="mx-auto max-w-6xl px-6 py-10">
+            <Breadcrumbs items={[{ name: "Contact", path: "/contact" }]} />
             <h1 className="font-display text-3xl font-bold sm:text-4xl">Contact us</h1>
             <p className="mt-2 max-w-xl text-primary-content/85">
               Call, email, or send your project details below — {business.owners[0]} or{" "}

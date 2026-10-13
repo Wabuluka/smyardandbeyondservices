@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { business, getTown, nearbyTowns, services, towns } from "@/lib/data";
 import { pageMetadata } from "@/lib/seo";
 
@@ -59,21 +59,17 @@ export default async function TownPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
-      <BreadcrumbSchema
-        items={[
-          { name: "Home", path: "/" },
-          { name: "Service Area", path: "/service-areas" },
-          { name: `${town.name}, ${town.state}`, path: `/service-areas/${town.slug}` },
-        ]}
-      />
       <Header />
       <main className="flex-1">
         <section className="border-b border-primary/15 bg-primary text-primary-content">
           <div className="mx-auto max-w-6xl px-6 py-14">
-            <Link href="/service-areas" className="text-sm font-display font-semibold text-primary-content/70 hover:text-primary-content">
-              ← All service areas
-            </Link>
-            <h1 className="mt-3 font-display text-4xl font-bold sm:text-5xl">
+            <Breadcrumbs
+              items={[
+                { name: "Service Area", path: "/service-areas" },
+                { name: `${town.name}, ${town.state}`, path: `/service-areas/${town.slug}` },
+              ]}
+            />
+            <h1 className="font-display text-4xl font-bold sm:text-5xl">
               {town.name}, {town.state}
             </h1>
             <p className="mt-4 max-w-xl text-primary-content/85">
