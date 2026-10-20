@@ -38,10 +38,23 @@ export default function CookiePolicyPage() {
             <div>
               <h2 className="font-display text-xl font-bold text-primary">How we use them</h2>
               <p className="mt-2">
-                We keep cookie use to a minimum. When you respond to the cookie notice, we store
-                your choice locally in your browser so we don&apos;t ask again on every page. We may
-                also use cookies to understand, in aggregate, how the site is used so we can improve
-                it. We do not use cookies to identify you personally or sell any data.
+                When you respond to the cookie notice, we store your choice locally in your browser
+                so we don&apos;t ask again on every page. This is the only cookie we set if you
+                click Reject.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="font-display text-xl font-bold text-primary">
+                Visitor tracking (only if you accept)
+              </h2>
+              <p className="mt-2">
+                If you click Accept, we load Google Tag Manager, which runs a third-party visitor
+                tracking tool. It uses cookies and information such as your IP address and the
+                pages you view to try to match your visit to a household and mailing address, so
+                we can send relevant offers by mail. That information is shared with the tracking
+                provider for this purpose. We do not sell your data. If you click Reject, this
+                tracking is never loaded.
               </p>
             </div>
 
@@ -50,7 +63,7 @@ export default function CookiePolicyPage() {
               <p className="mt-2">
                 You can clear or block cookies at any time through your browser settings. Clearing
                 this site&apos;s data will also reset your saved cookie choice, and the notice will
-                appear again on your next visit.
+                appear again on your next visit, so you can change your answer.
               </p>
             </div>
 

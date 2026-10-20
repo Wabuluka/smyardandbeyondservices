@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
-const STORAGE_KEY = "sm-cookie-consent";
+export const STORAGE_KEY = "sm-cookie-consent";
 /** Fired on window once the visitor answers, so other popups can wait their turn. */
 export const CONSENT_EVENT = "sm-cookie-consent";
 
@@ -39,7 +39,8 @@ export default function CookieConsent() {
     >
       <div className="mx-auto flex max-w-6xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-sm leading-relaxed text-neutral">
-          We use cookies to keep the site working and understand how it&apos;s used. See our{" "}
+          With your OK, we use cookies and a visitor tracking tool that may match your visit to
+          a mailing address so we can send you offers. See our{" "}
           <Link href="/cookie-policy" className="link link-primary">
             cookie policy
           </Link>

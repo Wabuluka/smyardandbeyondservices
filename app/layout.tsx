@@ -5,6 +5,7 @@ import { business } from "@/lib/data";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import CookieConsent from "@/components/CookieConsent";
 import PromoPopup from "@/components/PromoPopup";
+import Analytics from "@/components/Analytics";
 import { pageMetadata } from "@/lib/seo";
 
 const poppins = localFont({
@@ -51,6 +52,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         {children}
         <PromoPopup />
         <CookieConsent />
+        <Analytics />
       </body>
     </html>
   );
